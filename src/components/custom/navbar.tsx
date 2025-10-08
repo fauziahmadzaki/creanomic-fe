@@ -35,7 +35,7 @@ export default function Navbar() {
   ];
 
   return (
-    <div className="fixed md:max-w-4xl md:static md:flex top-0 left-0  bg-white justify-between items-center  md:py-[0px] md:p-3.5 md:border-gray-200 md:border-1 md:items-center w-full  md:rounded-lg">
+    <div className="fixed z-50 md:max-w-4xl md:static md:flex top-0 left-0  bg-white justify-between items-center  md:py-[0px] md:p-3.5 md:border-gray-200 md:border-1 md:items-center w-full  md:rounded-lg">
       <div className="w-full md:w-fit flex justify-between border-input border-b-1 md:border-none py-4 px-2 md:px-0">
         <Image src={"/image.png"} alt="logo" width={100} height={100} />
         <button
