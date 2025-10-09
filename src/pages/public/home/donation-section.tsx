@@ -21,8 +21,8 @@ export default function DonationSection() {
         kami. Donasimu akan langsung disalurkan ke lembaga yang benar-benar
         aktif di lapangan.
       </p>
-      <div className="p-10 border-t-1 border-t-gray-200 mt-10 grid grid-cols-1 md:grid-cols-[1fr_2fr] gap-10">
-        <div className="space-y-10 hidden md:block">
+      <div className="p-10 border-t-1 border-t-gray-200 mt-10 grid grid-cols-1 md:grid-cols-3 justify-center gap-10">
+        {/* <div className="space-y-10 hidden md:block">
           <Box>
             <h3 className="text-lg font-bold">Search</h3>
             <InputGroup>
@@ -33,12 +33,11 @@ export default function DonationSection() {
             </InputGroup>
           </Box>
           <ArticleFilterTable />
-        </div>
-        <div className="space-y-4">
-          {Array.from({ length: 4 }).map((_, index) => (
-            <DonationCard key={index} />
-          ))}
-        </div>
+        </div> */}
+
+        {Array.from({ length: 6 }).map((_, index) => (
+          <DonationCard key={index} />
+        ))}
       </div>
       <Pagination />
     </div>

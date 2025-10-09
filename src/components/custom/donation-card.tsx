@@ -5,12 +5,12 @@ import { Dot } from "lucide-react";
 
 export default function DonationCard() {
   return (
-    <div className="grid md:grid-cols-2 gap-6 items-center">
+    <div className="space-y-6 ">
       <Image
         src={"/donations.png"}
         alt="logo"
-        width={500}
-        height={500}
+        width={400}
+        height={400}
         className="rounded-md aspect-square md:aspect-auto"
       />
       <div>
@@ -28,7 +28,7 @@ export default function DonationCard() {
           <p className="text-sm font-normal text-primary">
             progres 450 pohon tertanam
           </p>
-          <div className="w-full h-1 bg-gradient-to-r from-primary via-primary/60 to-accent-white rounded-full"></div>
+          <div className="w-full h-1 bg-gradient-to-r from-primary via-primary/90 to-accent-white rounded-full"></div>
         </div>
         <Button className="mt-4">Donasi Sekarang</Button>
       </div>
