@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   NavigationMenu,
   NavigationMenuItem,
@@ -15,6 +15,20 @@ import { Button } from "../ui/button";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState<boolean>(false);
+  const [isScroll, setIsScroll] = useState<boolean>(false);
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 70) {
+        setIsScroll(true);
+      } else {
+        setIsScroll(false);
+      }
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  });
   const links = [
     {
       title: "Beranda",
@@ -35,7 +49,14 @@ export default function Navbar() {
   ];
 
   return (
-    <div className="fixed z-50 md:max-w-4xl md:static md:flex top-0 left-0  bg-white justify-between items-center  md:py-[0px] md:p-3.5 md:border-gray-200 md:border-1 md:items-center w-full  md:rounded-lg">
+    <div
+      className={clsx(
+        isScroll
+          ? " md:flex   top-0 md:top-5 "
+          : " md:fixed md:flex top-0 md:top-10  ",
+        "fixed z-50 md:max-w-4xl md:fixedtransition-all duration-500 ease-in-out bg-white justify-between items-center  md:py-[0px] md:p-3.5 md:border-gray-200 md:border-1 md:items-center w-full  md:rounded-lg"
+      )}
+    >
       <div className="w-full md:w-fit flex justify-between border-input border-b-1 md:border-none py-4 px-2 md:px-0">
         <Image src={"/image.png"} alt="logo" width={100} height={100} />
         <button
@@ -66,8 +87,8 @@ export default function Navbar() {
       </div>
       <div
         className={clsx(
-          "w-full md:w-fit shadow-sm md:flex  md:items-center overflow-hidden md:overflow-visible md:shadow-none  transition-all duration-700",
-          isOpen ? "max-h-96 opacity-100" : "max-h-0"
+          "w-full md:w-fit shadow-sm md:flex   md:items-center overflow-hidden md:overflow-visible md:shadow-none  transition-all duration-700",
+          isOpen ? "max-h-96 opacity-100 py-5" : "max-h-0"
         )}
       >
         <NavigationMenu className="w-full mx-auto mb-5 md:m-0">
@@ -77,7 +98,7 @@ export default function Navbar() {
                 <NavigationMenuLink asChild>
                   <Button
                     variant={"link"}
-                    className="text-lg md:font-semibold text-black font-sans"
+                    className="text-sm md:font-semibold text-black font-sans"
                   >
                     <Link href={link.href}>{link.title}</Link>
                   </Button>
