@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import PrivateLayout from "@/layouts/private-layout";
-import PublicLayout from "@/layouts/public-layout";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -24,17 +22,12 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const user = null;
   return (
     <html lang="en">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased overflow-x-hidden`}
       >
-        {user ? (
-          <PrivateLayout>{children}</PrivateLayout>
-        ) : (
-          <PublicLayout>{children}</PublicLayout>
-        )}
+        {children}
       </body>
     </html>
   );

@@ -52,7 +52,7 @@ export default function Navbar() {
     <div
       className={clsx(
         isScroll
-          ? " md:flex   top-0 md:top-5 "
+          ? " md:flex   top-0 md:top-5 shadow-md"
           : " md:fixed md:flex top-0 md:top-10  ",
         "fixed z-50 md:max-w-4xl md:fixedtransition-all duration-500 ease-in-out bg-white justify-between items-center  md:py-[0px] md:p-3.5 md:border-gray-200 md:border-1 md:items-center w-full  md:rounded-lg"
       )}
@@ -106,7 +106,9 @@ export default function Navbar() {
               </NavigationMenuItem>
             ))}
             <NavigationMenuItem>
-              <Button className="w-80 md:hidden">Login</Button>
+              <Button className="w-80 md:hidden">
+                <Link href={"/login"}>Login</Link>
+              </Button>
             </NavigationMenuItem>
             <NavigationMenuItem className="mt-3">
               <Button className="w-80 md:hidden" variant={"outline"}>
@@ -117,7 +119,9 @@ export default function Navbar() {
         </NavigationMenu>
       </div>
       <div className="hidden md:flex items-center">
-        <Button size={"sm"}>Login</Button>
+        <Button size={"sm"}>
+          <Link href={"/login"}>Login</Link>
+        </Button>
       </div>
     </div>
   );
